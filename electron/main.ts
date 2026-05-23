@@ -11,9 +11,13 @@ import {
   type NativeImage,
 } from 'electron';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import { profileManager } from './profile-manager';
 import { usageTracker } from './usage-tracker';
 import { store } from './store';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 let tray: Tray | null = null;
 let mainWindow: BrowserWindow | null = null;

@@ -111,7 +111,7 @@ export function SettingsPanel() {
           <p>CC Manager v0.1.0</p>
           <p>Manage Claude Code profiles and track usage from your menu bar.</p>
           <button
-            onClick={() => window.ccManager.app.openExternal('https://github.com/jdanjohnson/cc-manager')}
+            onClick={() => window.ccManager.app.openExternal('https://github.com/jdanjohnson/my-clawds')}
             className="underline hover:opacity-80 transition-opacity"
             style={{ color: 'var(--accent)' }}
           >
