@@ -1,4 +1,4 @@
-# CC Manager
+# my-clawds
 
 A macOS menu bar app for managing Claude Code profiles and tracking usage — built with Electron, React, and TypeScript.
 
@@ -17,7 +17,7 @@ Inspired by [claude-code-profiles](https://github.com/quinnjr/claude-code-profil
 
 ## Install
 
-Download the latest `.dmg` from [Releases](https://github.com/jdanjohnson/cc-manager/releases).
+Download the latest `.dmg` from [Releases](https://github.com/jdanjohnson/my-clawds/releases).
 
 Or build from source:
 
