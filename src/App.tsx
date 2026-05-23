@@ -21,6 +21,11 @@ export function App() {
   const [loading, setLoading] = useState(true);
 
   const refresh = async () => {
+    if (!window.ccManager) {
+      console.error('ccManager API not available — preload may have failed');
+      setLoading(false);
+      return;
+    }
     setLoading(true);
     try {
       const [profileList, data] = await Promise.all([
@@ -42,6 +47,7 @@ export function App() {
   useEffect(() => {
     refresh();
 
+    if (!window.ccManager) return;
     const unsub = window.ccManager.on('usage-updated', (...args: unknown[]) => {
       const data = args[0] as {
         status: AuthStatus;

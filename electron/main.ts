@@ -90,7 +90,7 @@ function createMainWindow() {
     skipTaskbar: true,
     alwaysOnTop: true,
     show: false,
-    transparent: true,
+    backgroundColor: '#1e1e1e',
     vibrancy: 'popover',
     visualEffectState: 'active',
     roundedCorners: true,
@@ -98,6 +98,7 @@ function createMainWindow() {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
+      sandbox: false,
     },
   });
 
@@ -106,6 +107,10 @@ function createMainWindow() {
   } else {
     mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
   }
+
+  mainWindow.webContents.on('did-fail-load', (_e, code, desc) => {
+    console.error(`[main] Failed to load: ${code} ${desc}`);
+  });
 
   mainWindow.once('ready-to-show', () => {
     mainWindow?.show();
@@ -134,6 +139,7 @@ function createSettingsWindow() {
     height: 480,
     title: 'CC Manager Settings',
     titleBarStyle: 'hiddenInset',
+    backgroundColor: '#1e1e1e',
     vibrancy: 'window',
     visualEffectState: 'active',
     show: false,
@@ -141,6 +147,7 @@ function createSettingsWindow() {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
+      sandbox: false,
     },
   });
 
